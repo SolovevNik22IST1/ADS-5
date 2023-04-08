@@ -33,60 +33,60 @@ int conv(char x) {
 
 
 std::string infx2pstfx(std::string inf) {
-  TStack<char>  stack1;
+  TStack<char>  stack0;
   std::string str = "";
   for (int i = 0; i < inf.length(); i++) {
     if (number(inf[i])) {
       str += inf[i];
       str += " ";
     } else if (inf[i] == '(') {
-      stack1.push(inf[i]);
+      stack0.push(inf[i]);
     } else if (inf[i] == ')') {
-      while (!stack1.isempty() && stack1.get() != '(') {
-        str += stack1.get();
+      while (!stack0.isempty() && stack0.get() != '(') {
+        str += stack0.get();
         str += " ";
-        stack1.pop();
+        stack0.pop();
       }
-      stack1.pop();
+      stack0.pop();
     } else if (operations(inf[i])) {
-      while (!stack1.isempty() && priority(stack1.get()) \
+      while (!stack0.isempty() && priority(stack0.get()) \
              >= priority(inf[i])) {
-        str += stack1.get();
+        str += stack0.get();
         str += " ";
-        stack1.pop();
+        stack0.pop();
       }
-      stack1.push(inf[i]);
+      stack0.push(inf[i]);
     }
   }
-  while (!stack1.isempty()) {
-    str += stack1.get();
+  while (!stack0.isempty()) {
+    str += stack0.get();
     str += " ";
-    stack1.pop();
+    stack0.pop();
   }
   str.erase(str.length() - 1, 1);
   return str;
 }
 
 int eval(std::string pref) {
-TStack<int> stack2;
+TStack<int> stack1;
   for (int i = 0; i < pref.length(); i+=2) {
     if (number(pref[i])) {
-      stack2.push(conv(pref[i]));
+      stack1.push(conv(pref[i]));
     } else if (operations(pref[i])) {
-      int b = stack2.get();
-      stack2.pop();
-      int a = stack2.get();
-      stack2.pop();
+      int b = stack1.get();
+      stack1.pop();
+      int a = stack1.get();
+      stack1.pop();
       if (pref[i] == '+') {
-        stack2.push(a + b);
+        stack1.push(a + b);
       } else if (pref[i] == '-') {
-        stack2.push(a - b);
+        stack1.push(a - b);
       } else if (pref[i] == '*') {
-        stack2.push(a * b);
+        stack1.push(a * b);
       } else if (pref[i] == '/') {
-        stack2.push(a / b);
+        stack1.push(a / b);
       }
     }
   }
-  return stack2.get();
+  return stack1.get();
 }
