@@ -17,15 +17,15 @@ class TStack {
       arr[++top] = value;
     }
     const T& pop() {
-      if (isEmpty())
+      if (isempty())
         throw std::string("Empty!");
       else
         return arr[top--];
     }
-    bool isEmpty() {
+    bool isempty() {
       return top == -1;
     }
-    bool isFull() {
+    bool isfull() {
       return top == 100;
     }
     const T& get() {
