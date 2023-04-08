@@ -12,16 +12,6 @@ int op(char x) {
             || x == '*' || x == '/');
 }
 
-int pr(char x) {
-    if (x == '(') return 0;
-    else if (x == ')') return 1;
-    else if (x == '+' || x == '-') return 2;
-    else if (x == '*' || x == '/') return 3;
-    else 
-    else
-        return -1;
-}
-
 int conv(char x) {
     char mas[10] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
     for (int i = 0; i < 10; i++) {
@@ -29,6 +19,15 @@ int conv(char x) {
             return i;
     }
     return -1;
+}
+
+int pr(char x) {
+    if (x == '(') return 0;
+    else if (x == ')') return 1;
+    else if (x == '+' || x == '-') return 2;
+    else if (x == '*' || x == '/') return 3;
+    else
+        return -1;
 }
 
 std::string infx2pstfx(std::string inf) {
