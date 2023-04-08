@@ -42,14 +42,14 @@ std::string infx2pstfx(std::string inf) {
     } else if (inf[i] == '(') {
       stack0.push(inf[i]);
     } else if (inf[i] == ')') {
-      while (!stack0.isempty() && stack0.get() != '(') {
+      while (!stack0.isEmpty() && stack0.get() != '(') {
         str += stack0.get();
         str += " ";
         stack0.pop();
       }
       stack0.pop();
     } else if (operations(inf[i])) {
-      while (!stack0.isempty() && priority(stack0.get()) \
+      while (!stack0.isEmpty() && priority(stack0.get()) \
              >= priority(inf[i])) {
         str += stack0.get();
         str += " ";
@@ -58,7 +58,7 @@ std::string infx2pstfx(std::string inf) {
       stack0.push(inf[i]);
     }
   }
-  while (!stack0.isempty()) {
+  while (!stack0.isEmpty()) {
     str += stack0.get();
     str += " ";
     stack0.pop();
