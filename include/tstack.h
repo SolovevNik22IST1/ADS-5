@@ -11,7 +11,7 @@ class TStack {
     public:
         TStack() : top(-1) {}
         void push(T value) {
-            if (isFull())
+            if (isfull())
                 throw std::string("Full!");
             else
                 arr[++top] = value;
