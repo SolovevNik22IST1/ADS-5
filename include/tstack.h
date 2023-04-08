@@ -18,21 +18,21 @@ class TStack {
     else
     arr[++top] = value;
   }
-const T& pop() {
-  if (isEmpty())
-    throw std::string("Empty!");
-  else
-    return arr[top--];
-}
-bool isEmpty() const {
-  return top == -1;
-}
-bool isFull() const {
-  return top == size - 1;
-}
-T get() const {
-  return arr[top];
-}
+  const T& pop() {
+    if (isEmpty())
+      throw std::string("Empty!");
+    else
+      return arr[top--];
+  }
+  bool isEmpty() {
+    return top == -1;
+  }
+  bool isFull() {
+    return top == size;
+  }
+  const T& get() {
+    return arr[top];
+  }
 };
 
 #endif  // INCLUDE_TSTACK_H_
