@@ -8,8 +8,7 @@ int num(char x) {
 }
 
 int op(char x) {
-    return (x == '+' || x == '-' \
-            || x == '*' || x == '/');
+    return (x == '+' || x == '-' || x == '*' || x == '/');
 }
 
 int conv(char x) {
